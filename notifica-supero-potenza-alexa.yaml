@@ -1,0 +1,39 @@
+blueprint:
+  name: Superamento Soglia Corrente - Notify Alexa
+  description: Invia una notifica vocale tramite alexa al superamento della soglia impostata.
+  domain: automation
+  input:
+    power:
+      name: Consumo Istantaneo
+      description: Sensore del consumo istantane in W
+      selector:
+        entity:
+          domain: sensor
+    echo_device:
+      name: Alexa
+      description: Il dispositivo Alexa su cui fare l'annuncio. Fare un elenco separato da virgole per annunciare su più dispositivi.
+      selector:
+        entity:
+          domain: media_player
+    message:
+      name: Message (Optional)
+      description: 'Default: "C'è qualcuno alla porta!"'
+      default: C'è qualcuno alla porta!
+#  source_url: https://community.home-assistant.io/t/doorbell-notify-alexa/256145
+mode: single
+trigger:
+- platform: state
+  entity_id: !input 'power'
+  above: 3500
+  for:
+    hours: 0
+    minutes: 2
+    seconds: 0
+action:
+- service: notify.alexa_media
+  data:
+    target:
+    - !input 'echo_device'
+    message: !input 'message'
+    data:
+      type: tts
