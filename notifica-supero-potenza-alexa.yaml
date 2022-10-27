@@ -17,8 +17,8 @@ blueprint:
           domain: media_player
     message:
       name: Message (Optional)
-      description: 'Default: "C'e qualcuno alla porta!"'
-      default: C'è qualcuno alla porta!
+      description: 'Default: "Superamento Potenza"'
+      default: Superamento Potenza
 #  source_url: https://community.home-assistant.io/t/doorbell-notify-alexa/256145
 mode: single
 trigger:
