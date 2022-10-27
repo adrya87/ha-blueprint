@@ -9,6 +9,10 @@ blueprint:
       selector:
         entity:
           domain: sensor
+    limite-potenza:
+      name: Limite potenza max
+      description: 'Default: "3500"'
+      default: 3500
     echo_device:
       name: Alexa
       description: Il dispositivo Alexa su cui fare l'annuncio. Fare un elenco separato da virgole per annunciare su più dispositivi.
@@ -19,12 +23,13 @@ blueprint:
       name: Message (Optional)
       description: 'Default: "Superamento Potenza"'
       default: Superamento Potenza
+
   source_url: https://github.com/adrya87/ha-blueprint/edit/main/notifica-supero-potenza-alexa.yaml
 mode: single
 trigger:
 - platform: state
   entity_id: !input 'power'
-  above: 3500
+  above: !input 'limite-potenza'
   for:
     hours: 0
     minutes: 2
