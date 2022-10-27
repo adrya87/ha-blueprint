@@ -1,5 +1,5 @@
 blueprint:
-  name: [📣⚡] Superamento Soglia Corrente - Notify Alexa 0.1
+  name: Superamento Soglia Corrente - Notify Alexa 0.1
   description: Invia una notifica vocale tramite alexa al superamento della soglia impostata.
   domain: automation
   input:
