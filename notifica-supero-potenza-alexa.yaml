@@ -28,7 +28,7 @@ blueprint:
 mode: single
 trigger:
 - platform: state
-  entity_id: !input 'power'
+  entity_id: 3500
   above: !input 'limite-potenza'
   for:
     hours: 0
